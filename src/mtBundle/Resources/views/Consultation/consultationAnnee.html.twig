@@ -1,0 +1,14 @@
+
+{% extends "layout.html.twig" %}
+{% block title %}
+    Consultation
+    
+{% endblock %}
+{% block body %}
+    {{ app.session.get('visiteur').getIdvisiteur() }}
+ 
+   
+    {{ form(form) }}
+     <a href="/gsb/web/app_dev.php">Retour</a>
+
+{% endblock %}

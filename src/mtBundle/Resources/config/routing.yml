@@ -1,0 +1,28 @@
+mt_homepage:
+    path:     /
+    defaults: { _controller: mtBundle:Default:index }
+    
+mt_connexion:
+    path: /visiteur
+    defaults: {_controller: mtBundle:Default:connexion }
+    
+mt_saisie:
+    path: /saisie
+    defaults: {_controller: mtBundle:Default:saisie }
+    
+mt_consultation:
+    path: /consultation
+    defaults: {_controller: mtBundle:Default:consultation}
+
+mt_saisie_modif:
+    path: /modification/{idlff}
+    defaults: {_controller: mtBundle:Default:modification}
+    
+mt_consultation_annee:
+    path: /consultationAnnee/{annee}
+    defaults: {_controller: mtBundle:Default:consultationParAnnee}
+    
+mt_consultation_annee_mois:
+  
+     path: /consultationParMoisAnnee/{annee}/{mois}
+     defaults: {_controller: mtBundle:Default:consultationParMoisAnnee}

@@ -1,0 +1,22 @@
+{# app/Resources/views/layount.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <div id="entete">
+            <link rel="stylesheet" href ="styles.css" />
+            <title> {% block title %}Page principale{% endblock %}</title>
+        </div>
+        {% endblock %}
+    </head>
+    <body>
+        <div id="contenu">
+            {% block body %}{% endblock %}
+        </div>
+        <div id="pied">
+            {% block footer %}
+            &copy; Copyright 2018 by CM
+            {% endblock %}
+        </div>
+    </body>
+</html>

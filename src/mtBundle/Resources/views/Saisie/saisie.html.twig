@@ -1,0 +1,53 @@
+
+{% extends "layout.html.twig" %}
+{% block head %}
+    {{ parent() }}
+{%endblock%}
+{% block title %}
+    Saisie
+    
+{% endblock %}
+
+{% block body %}
+    {{ app.session.get('visiteur').getIdvisiteur() }}
+     {{ dump(app.session.get('lignefraisforfait'))}}
+     
+     
+      <table>
+          <legend>Les lignes frais forfait</legend>
+ <tr>
+   <th>Mois</th>
+   <th>Année</th>
+    <th>Libellé</th>
+     <th>Quantité</th>
+     <th></th>
+ </tr>
+
+     {% for lff in lignefraisforfait%}
+     <tr>
+         <td>{{ lff.getMois() }}</td>
+         <td>{{ lff.getAnnee() }}</td>
+{% if lff.getIdfraisforfait() == "NUI" %}
+    <td>Nuit à l'hôtel</td> 
+{% elseif lff.getIdfraisforfait() == "ETP"%}
+        <td>Forfait étape</td> 
+{% elseif lff.getIdfraisforfait() == "KM"%}
+    <td>Frais Kilométrique</td>
+{% else %}
+    <td>Repas Restaurant</td>
+{% endif %}
+         
+         <td>{{ lff.getQuantite() }}</td>
+         <td><a href="/gsb/web/app_dev.php/modification/{{ lff.getId()}}">Modifier</a></td>
+     {% endfor %}
+ </tr>
+</table> 
+     {{ dump(app.session.get('lignefraishorsforfait'))}}
+
+     
+    
+   
+    {{ form(form) }}
+     <a href="/gsb/web/app_dev.php">Retour</a>
+
+{% endblock %}

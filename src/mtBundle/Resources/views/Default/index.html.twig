@@ -1,0 +1,21 @@
+{% extends "layout.html.twig" %}
+
+
+
+
+        {% block head %}
+            {{ parent() }}
+        {% endblock %}
+
+           {% block body %}
+                
+{{ app.session.get('visiteur').getPrenom() }}
+{{ app.session.get('visiteur').getNom() }}
+{{ app.session.get('visiteur').getIdvisiteur() }}
+<a href="/gsb/web/app_dev.php/saisie">Saisie d'un nouveau frais forfait ou frais hors forfait</a>
+<a href="/gsb/web/app_dev.php/consultation">Modifier ma fiche</a>
+{%endblock%}
+
+            {% block footer %}
+   {{ parent() }}
+            {% endblock %}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Comptable" table="comptable">
+    <indexes>
+      <index name="idType" columns="idType"/>
+    </indexes>
+    <id name="idcomptable" type="integer" column="idComptable">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="login" type="string" column="login" length="20" nullable="true">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <field name="mdp" type="string" column="mdp" length="50" nullable="true">
+      <options>
+        <option name="fixed"/>
+      </options>
+    </field>
+    <field name="nom" type="string" column="nom" length="15" nullable="false">
+      <options>
+        <option name="fixed">1</option>
+      </options>
+    </field>
+    <many-to-one field="idtype" target-entity="Type" fetch="LAZY">
+      <join-columns>
+        <join-column name="idType" referenced-column-name="idtype"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>
